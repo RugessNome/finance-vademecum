@@ -1,0 +1,99 @@
+
+\chapter{Démontrer la rentabilité d'un investissement}
+
+\chapterprecishere{``N'oubliez pas le template !''\par\raggedleft--- Hugues Gissler}
+
+Dans cette partie, on se propose de montrer l'utilisation d'Excel 
+pour étudier la rentabilité d'un investissement.
+Cette partie est à lire dans la continuité du chapitre 2 où l'on introduit 
+la notion de taux d'actualisation.
+
+Pour étudier la rentabilité d'un investissement sur $n$ années, 
+on va considérer:
+\begin{itemize}
+  \item ce que l'investissement nous coûte au départ;
+  \item ce qu'il nous rapporte chaque année (produits);
+  \item ce qu'il nous coûte chaque année (charges).
+\end{itemize}
+
+De cela, on en déduit un flux de trésorerie pour chaque année. 
+Dès que l'on considére des années futures, il est nécessaires d'actualiser 
+les flux de trésoreries. Il faut pour cela choisir une valeur pour le taux 
+d'actualisation (par exemple 10\%).
+
+On peut donc construire un tableau Excel ayant la forme suivante.
+
+\begin{center}
+\begingroup
+\scriptsize
+\begin{tabular}{lccccc}
+  Année          & 0   & 1     & 2     & $\cdots$ & $n$ \\
+  \hline
+  Produits       & 0   & $x_1$ & $x_2$ & $\cdots$ & $x_n$ \\
+  Charges        & 0   & $y_1$ & $y_2$ & $\cdots$ & $y_n$ \\
+  Investissement & $I$ & 0     & 0     & $\cdots$ & 0 \\
+  \hline
+  Flux tréso.\/  & $I$ & $f_1$ & $f_2$ & $\cdots$ & $f_5$ \\
+  Flux actualisé & $I$ & $g_1$ & $g_2$ & $\cdots$ & $g_n$ \\
+\end{tabular}
+\endgroup
+\end{center}
+
+On a les formules suivantes:
+\begin{itemize}
+  \item $f_i = x_i + y_i$;
+  \item $g_i = f_i \times (1 + \alpha^i)^{-1}$.
+\end{itemize}
+
+Il est possible de calculer le taux de rentabilité interne en 
+sélectionnant toutes les valeurs de la ligne des flux de trésoreries 
+(non actualisés) et en utilisant la fonction \textsc{TRI} d'Excel.
+
+Si l'on somme les flux de trésoreries actualisés (fonction \textsc{SOMME}), 
+on obtient la VAN (valeur actuelle nette). 
+Cette valeur donne une première indication de la rentabilité puisque si elle 
+est positive cela signifie que l'investissement est rentable.
+Une autre quantité très intéressante se calcul en divisant la VAN 
+sur l'investissement initial, il s'agit du ROI.
+\[
+\text{ROI} = \frac{\text{VAN}}{-I}
+\]
+
+Pour aller plus loin, on peut décomposer les lignes correspondant aux produits et 
+aux charges en sous-lignes et introduire une incertitude sur ces quantités.
+Excel nous permet de construire un tableau permettant de faire des simulations 
+pour différentes valeurs de 2 variables.
+
+\begin{center}
+\begingroup
+\scriptsize
+\begin{tabular}{l|ccccc}
+  $v$      & $a_1$   & $a_2$  & $\cdots$ & $a_n$ \\
+  \hline
+  $b_1$    &         &        &          & \\
+  $b_2$    &         &        &          &  \\
+  $\vdots$ &         &        &          &  \\
+  $b_n$    &         &        &          &
+\end{tabular}
+\endgroup
+\end{center}
+
+Avec:
+\begin{itemize}
+  \item dans la case $v$, la formule permettant de calculer la quantité d'intérêt (par exemple la VAN);
+  \item $a_i$, les différentes valeurs de la première variable;
+  \item $b_i$, les différentes valeurs de la seconde variable.
+\end{itemize}
+
+La procédure est alors la suivante:
+\begin{enumerate}
+  \item sélectionner l'ensemble du tableau;
+  \item aller dans l'onglet \textit{Données}, puis cliquer sur \textit{Analyse de scénarios}
+        puis \textit{Table de données};
+  \item entrer dans le champs \textit{Cellule d'entrée en ligne} le nom de la case contenant 
+        la valeur de la première variable;
+  \item faire de même pour la deuxième variable et cliquer sur \textsc{ok}.
+\end{enumerate}
+Le tableau de remplit alors avec les valeurs calculées. 
+Pour un résultat plus visuel, il est possible de demander à Excel de colorier les 
+cases en allant dans l'onglet \textit{Accueil} et en cliquant sur \textit{Mise en forme conditionnelle}.

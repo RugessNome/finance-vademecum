@@ -1,0 +1,115 @@
+
+\chapter{Un choix difficile ?}
+
+\chapterprecishere{``Pour comparer deux quantités, on regarde le signe 
+de la différence''\par\raggedleft--- François Ranty}
+
+Les évènements relatés au chapitre précédent montrent à 
+la fois l'importance des calculs de marges (évaluation 
+de la rentabilité / des performances, coûts standards, etc...\/)
+mais également la difficulté d'intégrer les charges fixes non 
+spécifiques dans ces calculs... \\
+\hspace*{\parindent}Cela peut être le sujet de longues discussions et peut parfois 
+amener à des résultats contre-intuitifs.
+\begin{itemize}
+ \item "Tiens, par exemple", me dit le comptable.
+\end{itemize} 
+"Si je refais les calculs en imputant les charges fixes non 
+spécifiques de manière équiproportionnelles à toutes les activités, 
+puis que je supprime les activités ayant une marge totale 
+négative; les marges de toutes mes autres 
+activités diminuent fortement, et deviennent parfois elles aussi négatives..."
+\begin{itemize}
+ \item "C'est les coûts fixes mon vieux", lui répondis-je.
+\end{itemize} 
+En fait, quand il s'agit de programmer l'arrêt d'une activité, il est 
+à priori préférable de choisir celle qui a la marge sur coûts variables 
+la plus négative: en effet, plus on effectuera de vente sur cette activité, 
+plus cela dégradera le résultat. \\
+\hspace*{\parindent}L'un des autres problèmes, lorsque l'on raisonne en terme de projets et 
+non plus en terme d'activités, est que l'on a tendance à attribuer certaines 
+charges plus facilement à certains projets battant de l'aile pour 
+en favoriser d'autres. 
+C'est un peu le principe de la méthode JGSC\footnote{J'en garde sous le coude.}.
+Si cela permet de faire plaisir au management, cela peut cependant avoir 
+des conséquences assez néfaste, notamment sur le calcul des coûts standards...
+
+Ces discussions sur les marges sont très intéressantes, mais un 
+autre problème nécessite notre attention.
+Il y a quelques temps, une machine sur la chaîne de 
+production s'est déréglée et la personne en charge de 
+vérifier le bon fonctionnement s'en est rendu compte 
+un peu tard. \\
+\hspace*{\parindent}Résultat : 1000 pièces non-conformes ont été usinées. \\
+\hspace*{\parindent}Ce sont des pièces élaborées destinées à des industries où 
+les normes sont assez strictes. 
+Elles sont vendues à 60 \euro\/ 
+(+ 5 \euro\/ d'expédition) pour un prix de revient de 45 \euro.
+Les retours clients coûtent 10 \euro\/ pièce mais sont très rares 
+sur cette référence. \\
+\hspace*{\parindent}Pour tenter de rattraper le coup, nous avons déjà effectué 
+un réusinage sur les pièces (10 \euro\/ de retouche par pièce); 
+mais notre client n'est pas satisfait et il ne nous reste que 
+la solution de sous-traitance pour résoudre le défaut 
+(coût : 25\euro\/ par pièce). \\
+\hspace*{\parindent}Ajouter à cela le fait que le client nous facturera de toute manière 
+une pénalité de retard d'un montant de 20 \euro\/ par pièce, 
+nous sommes tentés de choisir
+une autre solution qui se présente à nous: on peut mettre la pièce 
+au rebut et récupérer pour 20 \euro\/ de matière, et 
+annuler la commande. \\
+\hspace*{\parindent}Roger, un fidèle ouvrier, commence alors à faire les calculs 
+dans les deux situations pour savoir ce qu'il faut faire.
+\begin{itemize}
+ \item "On sous-traite !"
+ \item "Quoi !?", me dit Roger.
+\end{itemize} 
+Ce dernier a du mal à masquer son étonnement et me demande 
+aussitôt comment j'ai fait tous les calculs si vite et de tête.
+Je lui explique que pour résoudre ce genre de problème il n'est 
+pas nécessaire de prendre en compte tous les éléments. 
+
+On peut prendre une décision très rapidement en appliquant 
+la méthode FDP\footnote{A ne pas confondre avec fils 
+de la plage.} : cette méthode consiste à ne prendre en 
+compte que les éléments qui sont \emph{futurs}, \emph{différentiels} 
+et \emph{pertinents}. 
+Voyons ce que cela donne pour notre cas dans le tableau suivante.
+
+\begingroup
+\scriptsize
+\begin{center}
+\begin{tabular}{llcccc}
+  \'Element        & F        & D        & P         & Opt.\/ 1 & Opt.\/ 2 \\
+  \hline
+  Production pièce &          &          & $\times$  &         &         \\
+  Vente pièce      & $\times$ & $\times$ & $\times$  &  65     &         \\
+  Retouche         &          &          &           &         &         \\
+  Sous-traitance   & $\times$ & $\times$ & $\times$  & (25)    &         \\
+  Pénalité         & $\times$ &          & $\times$  &         &         \\
+  Rebut            & $\times$ & $\times$ & $\times$  &         & 20      \\
+  Retours-client   & $\times$ & $\times$ &           &         &         \\
+  \hline
+  \multicolumn{4}{l}{\hspace{1em} Total}             & 40      & 20\\
+\end{tabular}
+\end{center}
+\endgroup
+
+Comme on peut le voir, l'option numéro 1 (la sous-traitance) obtient 
+le meilleur score et c'est donc elle qu'il faut choisir. 
+Les calculs sont beaucoup plus simples que si on avait tout 
+pris en compte. 
+Pour savoir quelle option est la meilleure, il n'est pas nécessaire de 
+prendre en compte les éléments qui nous ont déjà coûté de l'argent, 
+ni ceux qui sont communs aux deux options. 
+Enfin, les éléments peu pertinents (ici les retours-client qui sont 
+très rares) n'ont pas non plus besoin d'être considérés. 
+
+
+Il est cependant important de comprendre que si cette méthode 
+permet de prendre rapidement une décision, elle n'empêche pas 
+de faire ensuite un calcul sur l'impact dans le résultat. 
+En effet, même si ici la première option est la meilleure, 
+une fois tous les coûts pris en comptes (la production des 
+pièces, la pénalité de retard, etc...\/), on obtient bien 
+une perte.

@@ -1,0 +1,169 @@
+
+%%--------------------------------------------------
+%%  create chapter style
+
+\makechapterstyle{chapterStyle}{%
+  \renewcommand{\beforechapskip}{\onelineskip}
+  \renewcommand{\afterchapskip}{\onelineskip}
+  \renewcommand{\chapternamenum}{}
+  \renewcommand{\chapnamefont}{\chaptitlefont}
+  \renewcommand{\chapnumfont}{\chaptitlefont}
+  \renewcommand{\printchapternum}{\chapnumfont\thechapter\quad}
+  \renewcommand{\afterchapternum}{}
+}
+
+%% Custom chapter title
+\usepackage[explicit]{titlesec}
+\titleformat{\chapter}[display]
+  {\Large\centering\scshape}
+  {\filcenter\chaptertitlename\Huge\thechapter}
+  {0ex}
+  {\titleline[c]{\titlerule[.4pt]}\vspace{1ex} #1}
+  [{\vspace{1ex}\titleline[c]{\titlerule[.4pt]}}] 
+  
+\titlespacing*{\chapter}{0pt}{-15pt}{40pt}
+
+\let\oldtitleline\titleline
+\renewcommand{\titleline}{\oldtitleline*}
+\setlength{\titlewidth}{0.75\textwidth}
+
+
+\newcommand\normalchapterstyle{
+  \titlespacing*{\chapter}{0pt}{-40pt}{10pt}
+  \titleformat{\chapter}{\Large\textbf}{}{0pt}{}{}
+  \titleformat{\section}{\large\textbf}{}{0pt}{}
+  \titleformat{\subsection}{\normalsize\textit}{}{0pt}{}
+}
+
+%\makeatletter
+%\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+%\def\@makechapterhead#1{%
+%  \vspace*{10\p@}%
+%  {\parindent \z@ \centering \reset@font
+%        {\Huge \scshape \thechapter}
+%        \par\nobreak
+%        \vspace*{15\p@}%
+%        \interlinepenalty\@M
+%        \setlength{\arrayrulewidth}{1pt}
+%        \begin{tabular}{@{\qquad}c@{\qquad}}
+%          \hline
+%          \\
+%          {\Huge \bfseries #1\par\nobreak} \\
+%          \\
+%          \hline
+%        \end{tabular}
+%    \vskip 30\p@
+%  }}
+%\def\@makeschapterhead#1{%
+%  \vspace*{10\p@}%
+%  {\parindent \z@ \centering \reset@font
+%        {\Huge \scshape \vphantom{\thechapter}}
+%        \par\nobreak
+%        \vspace*{15\p@}%
+%        \interlinepenalty\@M
+%        \setlength{\arrayrulewidth}{2pt}
+%        \begin{tabular}{@{\qquad}c@{\qquad}}
+%          \hline
+%          \\
+%          {\Huge \bfseries #1\par\nobreak} \\
+%          \\
+%          \hline
+%        \end{tabular}
+%    \vskip 100\p@
+%  }}
+
+
+%%--------------------------------------------------
+%%  create page styles
+
+\makepagestyle{pageStyle}
+\makeevenhead{pageStyle}{\thepage}{\textsc{VADEMECUM FINANCE}}{}
+\makeoddhead{pageStyle}{}{\textsc{VINCENT CHAMBRIN}}{\thepage}
+%\makeevenfoot{pageStyle}{\leftmark}{}{\thepage}
+%\makeoddfoot{pageStyle}{\leftmark}{}{\thepage}
+
+\makeatletter
+\makepsmarks{pageStyle}{%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{\markboth{##1}{##1}}%
+  \def\sectionmark##1{\markboth{%
+    \ifnum \c@secnumdepth>\z@
+      \textsection\space\thesection
+    \fi
+    }{\rightmark}}%
+  \def\subsectionmark##1{\markboth{%
+    \ifnum \c@secnumdepth>\z@
+      \textsection\space\thesubsection
+    \fi
+    }{\rightmark}}%
+  \def\subsubsectionmark##1{\markboth{%
+    \ifnum \c@secnumdepth>\z@
+      \textsection\space\thesubsubsection
+    \fi
+    }{\rightmark}}%
+  \def\paragraphmark##1{\markboth{%
+    \ifnum \c@secnumdepth>\z@
+      \textsection\space\theparagraph
+    \fi
+    }{\rightmark}}}
+\makeatother
+
+\aliaspagestyle{chapter}{pageStyle}
+
+%%--------------------------------------------------
+%%  set heading styles for main matter
+\newcommand{\beforeskip}{-.7\onelineskip plus -1ex}
+\newcommand{\afterskip}{.3\onelineskip minus .2ex}
+
+\setbeforesecskip{\beforeskip}
+\setsecindent{0pt}
+\setsecheadstyle{\large\bfseries\raggedright}
+\setaftersecskip{\afterskip}
+
+\setbeforesubsecskip{\beforeskip}
+\setsubsecindent{0pt}
+\setsubsecheadstyle{\large\bfseries\raggedright}
+\setaftersubsecskip{\afterskip}
+
+\setbeforesubsubsecskip{\beforeskip}
+\setsubsubsecindent{0pt}
+\setsubsubsecheadstyle{\normalsize\bfseries\raggedright}
+\setaftersubsubsecskip{\afterskip}
+
+\setbeforeparaskip{\beforeskip}
+\setparaindent{0pt}
+\setparaheadstyle{\normalsize\bfseries\raggedright}
+\setafterparaskip{\afterskip}
+
+\setbeforesubparaskip{\beforeskip}
+\setsubparaindent{0pt}
+\setsubparaheadstyle{\normalsize\bfseries\raggedright}
+\setaftersubparaskip{\afterskip}
+
+
+%%--------------------------------------------------
+%%  set footnote style
+\footmarkstyle{\smaller#1) }
+
+%%--------------------------------------------------
+% set style for main text
+\setlength{\parindent}{0.3cm}
+%\setlength{\parskip}{1ex}
+%\setlength{\parskip}{0ex}
+\setlength{\parskip}{\onelineskip}
+\setlength{\partopsep}{-1.5ex}
+
+%%--------------------------------------------------
+%% set global styles that get reset by \mainmatter
+\newcommand{\setglobalstyles}{
+  \counterwithout{footnote}{chapter}
+  \counterwithout{table}{chapter}
+  \counterwithout{figure}{chapter}
+  \renewcommand{\chaptername}{}
+  \renewcommand{\appendixname}{Annexe }
+}
+
+%%--------------------------------------------------
+%% set section numbering limit, toc limit
+\maxsecnumdepth{subparagraph}
+\setcounter{tocdepth}{1}

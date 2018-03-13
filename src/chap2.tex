@@ -1,0 +1,170 @@
+
+\chapter{Un investissement rentable ?}
+
+
+\chapterprecishere{``Un tiens vaut mieux que deux tu l'auras.''\par\raggedleft--- \textup{Le Petit Poisson et le Pêcheur}, La Fontaine}
+
+Gérard, fidèle employé de notre petite société de
+fabrication est fatigué de travailler sur une machine qui n'est 
+plus à la pointe de la technologie. 
+Voulant améliorer la situation, il décide de faire des 
+recherches et finit par trouver une machine qui permettrait de 
+produire autant et pour moi cher.
+En plus de rendre la vie des travailleurs plus agréable, 
+cette machine pourrait donc également permettre de faire 
+des économies. \\
+\hspace*{\parindent}Comme Gérard sait bien que le patron est souvent occupé, 
+il décide de se construire un petit dossier pour appuyer son idée.
+Il fait ses calculs et en déduit que l'investissement serait 
+rentable en moins de 5 ans. \\
+\hspace*{\parindent}Fier comme un bar-tabac, 
+il court donc voir son patron pour lui 
+soumettre l'idée. Il lui montre tout son petit dossier: la 
+fiche technique de la machine, le coût de l'investissement 
+et les économies qu'il va pouvoir réaliser chaque année.
+Le patron, qui n'est pas né de la dernière pluie, sait que 
+tout n'est pas si simple. Il suspecte que le calcul de 
+son employé ne soit pas tout à fait juste. 
+Cependant, comme il ne veut pas se mettre ses employés à dos, 
+il décide de renvoyer le poisson vers le monsieur finance 
+de l'entreprise. Après tout, ce dernier n'est déjà pas apprécié 
+par la majorité des employés, autant que ce soit lui qui 
+annonce les mauvaises nouvelles.
+\begin{itemize}
+  \item "Oui, ça pourrait être intéressant, va donner ça à 
+  Francis qu'il nous dise si c'est faisable"
+  \item "Ok chef !"
+\end{itemize}
+\hspace*{\parindent}L'employé va alors voir le comptable, 
+frappe à la porte de son bureau et fini par être accueilli par le 
+comptable qui visiblement est dérangé (il était probablement 
+en train d'effectuer son activité favorite, enregistrer des 
+pièces comptables).
+Gérard, voulant alors s'attribuer tout le mérite, s'adresse 
+au comptable comme suit \\
+\begin{itemize}
+  \item "J'ai réfléchi à un investissement qui pourrait nous faire 
+    économiser pas mal d'argent et le chef m'a dit de venir vous apportez ça,
+	voilà en faite il s'agirait..."
+  \item "Posez ça sur mon bureau je regarderais plus tard", 
+    dit le comptable pour couper court à Gérard, voyant que 
+    ce dernier allait probablement s'étendre en explications.
+\end{itemize}
+\hspace*{\parindent}Ce dernier, ne voulant pas risquer d'énerver le comptable, 
+déposa son petit dossier sur le bureau et partit en se disant 
+que tout allait aller comme sur des roulettes.
+\hspace*{\parindent}Quelques jours plus tard, n'ayant pas de nouvelles,
+Gérard va voir le comptable pour lui en demander. 
+Il ressort de son bureau quelques minutes plus tard, bien 
+énervé: le comptable a rejeté son idée ! 
+
+
+Pour comprendre comment deux personnes en sont arrivés 
+à des conclusions différentes, il faut étudier la façon 
+dont ils ont chacun fait leurs calculs.
+
+Gérard, lui, à décidé de voir les choses simplement: le 
+coût d'achat et de mise en service de la nouvelle machine 
+serait de 100 k\euro\/; cette dernière permettrait sur 5 ans 
+d'économiser 24 k\euro\/ par an. Au final, 
+\[ 5 \times 24 - 100 = 20 > 0 \]
+donc d'après Gérard le projet est rentable.
+
+Le financier, quant à lui, sait que ce n'est 
+cependant pas aussi simple que cela ! 
+Lorsqu'il a fait son calcul, ce dernier à pris en compte 
+le fait que $1$ euro dans 5 ans ce n'est pas $1$ euro aujourd'hui. 
+Pour montrer cela, nous allons prendre l'exemple simple d'un placement à 
+la banque. Supposons que je place en banque $x$ euros. 
+Chaque année, la banque va me reverser $\alpha$ \% d'intérêts.
+Ainsi, à l'issue de la première année, je n'aurais plus $x$ 
+euros en banque mais $x \times (1+\alpha)$, quantité 
+que nous appellerons $F_1$. 
+\hspace*{\parindent}Ainsi, après seulement une année à la banque, 
+j'ai déjà plus d'argent qu'au départ !
+Si je laisse cet argent à la banque, et que les taux restent 
+constant, je gagnerais chaque année une somme vérifiant:
+\[ F_n = x \times (1+\alpha)^n \]
+Ceci montre bien qu'$1$ euro dans 5 ans, ce n'est pas $1$ euro 
+aujourd'hui.
+On peut évidemment faire autre chose de cet argent 
+(ce n'était qu'un exemple), mais dans 
+tous les cas, on peut espérer qu'il nous rapporte. 
+Ceci implique qu'il est nécessaire "d'actualiser" les 
+flux de trésorerie futurs pour faire un calcul plus juste.
+
+La formule précédente nous permet d'estimer la valeur future 
+de notre argent. En l'inversant, on peut calculer l'équivalent 
+aujourd'hui d'un montant que l'on recevrait dans le futur.
+\[ F_0 = \frac{F_n}{(1+\alpha)^n} \]
+Dans cette formule, $\alpha$ est appelé le \emph{taux 
+d'actualisation}, il permet d'actualiser la valeur d'une somme future.
+On est alors en mesure de ré-estimer le coût de notre 
+investissement.
+
+La taux d'actualisation est en général pris égal au \emph{WACC} (\textit{weighted average cost of capital}, ou 
+CMPC en français, coût moyen pondéré du capital).
+Ce dernier se calcul de la manière suivante:
+\begin{equation*}
+\label{eq:WACC}
+\mathrm{WACC} = \frac{C_p R + D_f I (1- t_i) }{C_p + D_f}
+\end{equation*}
+Avec:
+\begin{itemize}
+  \item $C_p$, les capitaux propres;
+  \item $R$, le coût des capitaux propres, i.e.\ la rentabilité attendue par les actionnaires;
+  \item $D_f$, les dettes financières;
+  \item $I$, les intérêts des dettes financières;
+  \item $t_i$, le taux d'imposition.
+\end{itemize}
+
+Moralement, ce quotient correspond au taux d'actualisation 
+qui permet de satisfaire les investisseurs et de payer les 
+intérêts des dettes; ces derniers sont coefficientés 
+par le taux d'imposition car les intérêts font diminuer 
+le résultat et donc l'impôt payé (ils sont en quelques sortes 
+déductibles d'impôts).
+
+Par exemple, pour $\alpha = 5\%$, on obtient.
+
+\begin{table}[h]
+\small
+\centering
+\begin{tabular}{|r|c|c|c|c|c|c|}
+\hline
+ Année & 0 & 1 & 2 & 3 & 4 & 5 \\
+ Flux  & -100 & 24 & 24 & 24 & 24 & 24 \\
+ Actualisé & -100 & 22,86 & 21,77 & 20,73 & 19,74 & 18,80 \\
+ Cumul & -100 & -77,14 & -55,37 & -34,64 & -14,90 & 3,91 \\
+\hline
+\end{tabular}
+\caption{Flux de trésorerie actualisé}
+\end{table}
+
+On se rend compte que ce calcul est tout de suite moins 
+avantageux pour ce qui est de la rentabilité du projet: 
+les ROI est ici un peu en dessous des 4\%, ce qui est 
+assez faible.
+
+La formule utilisé pour actualiser nos flux de trésorerie 
+reste cependant un peu simpliste: elle suppose par exemple 
+que le taux d'actualisation reste constant au cours du temps 
+ce qui n'est pas réellement le cas. 
+C'est pourquoi l'on effectue en général les calculs avec 
+différents taux d'actualisation, pour voir à quel point 
+l'investissement est intéressant. 
+On s'intéresse en 
+particulier à la valeur du taux d'actualisation, le TRI, qui 
+annule les bénéfices. Plus le TRI est élevé, plus 
+l'investissement est rentable.
+
+Attention cependant, il est parfois préférable d'avoir 
+un TRI relativement faible mais sur un projet d'une durée 
+courte, plutôt qu'un TRI élevé mais sur un temps beaucoup 
+plus long.
+
+Ici, le calcul donne un TRI d'environ 6,4\%. 
+Le projet a probablement été rejeté car cette valeur est 
+inférieure au WACC de la société.
+
+

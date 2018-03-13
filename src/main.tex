@@ -1,0 +1,115 @@
+%% main file
+%%
+
+
+\documentclass[ebook,9pt,openany,final,french]{memoir}
+
+
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{relsize}      % provide relative font size changes
+\usepackage{underscore}   % remove special status of '_' in ordinary text
+\usepackage{verbatim}     % improved verbatim environment
+\usepackage{parskip}      % handle non-indented paragraphs "properly"
+\usepackage{array}        % new column definitions for tables
+\usepackage[normalem]{ulem}
+\usepackage{color}        % define colors for strikeouts and underlines
+\usepackage{amsmath}      % additional math symbols
+\usepackage{mathrsfs}     % mathscr font
+\usepackage{microtype}
+\usepackage{xspace}
+\usepackage{fixme}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex, final]{graphicx}
+\usepackage[pdftex,
+            pdftitle={VADEMECUM FINANCE - Vincent CHAMBRIN},
+            pdfsubject={},
+            pdfcreator={Vincent CHAMBRIN},
+            bookmarks=true,
+            bookmarksnumbered=true,
+            pdfpagelabels=true,
+            pdfpagemode=UseOutlines,
+            pdfstartview=FitH,
+            linktocpage=true,
+            colorlinks=true,
+            linkcolor=blue,
+            plainpages=false
+           ]{hyperref}
+\usepackage{memhfixc}     % fix interactions between hyperref and memoir
+\usepackage{xstring}
+\usepackage{caption}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+\usepackage{cite}
+\usepackage{eurosym}
+\usepackage{mathtools}
+
+\usepackage{multirow}
+
+\input{layout}
+\input{styles}
+\input{macros}
+
+\makeindex
+
+
+%%--------------------------------------------------
+%% fix interaction between hyperref and other
+%% commands
+\pdfstringdefDisableCommands{\def\smaller#1{#1}}
+\pdfstringdefDisableCommands{\def\textbf#1{#1}}
+\pdfstringdefDisableCommands{\def\raisebox#1{}}
+\pdfstringdefDisableCommands{\def\hspace#1{}}
+
+
+\begin{document}
+\chapterstyle{chapterStyle}
+\pagestyle{pageStyle}
+
+\frontmatter
+\include{front}
+
+\mainmatter
+\setglobalstyles
+
+\include{chap1}
+\include{chap2}
+\include{chap3}
+\include{chap4}
+
+\begin{appendices}
+
+\begingroup
+
+\titleformat{\chapter}[display]
+{\Large\centering\scshape}{\chaptertitlename\ \thechapter : #1}{0pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{-15pt}{0pt}
+
+\chapter{Documents comptables}
+\input{cr1}
+\input{cr2}
+\input{bilan-passif}
+\input{bilan-actif}
+
+\chapter{Soldes intermédiaires de gestion}
+\label{chapter:sig}
+\input{sig}
+
+\chapter{Tableau des flux de trésoreries}
+\input{tft}
+
+\include{excel-template}
+
+\include{lexique}
+
+\endgroup
+
+\end{appendices}
+
+
+\backmatter
+\include{back}
+
+\end{document}
